@@ -21,7 +21,6 @@ public enum UsingState implements Type{
         this.description = description;
     }
 
-
     @Override
     public int getId(){
         return this.id;

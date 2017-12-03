@@ -23,7 +23,6 @@ public enum Sex implements Type{
         this.description = description;
     }
 
-
     @Override
     public int getId(){
         return this.id;

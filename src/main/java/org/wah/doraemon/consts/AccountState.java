@@ -23,7 +23,6 @@ public enum AccountState implements Type{
         this.description = description;
     }
 
-
     @Override
     public int getId(){
         return this.id;
