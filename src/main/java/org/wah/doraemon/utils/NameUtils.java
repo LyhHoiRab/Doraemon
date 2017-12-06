@@ -22,19 +22,19 @@ public class NameUtils{
         Matcher matcher = pattern.matcher(str);
 
         while(matcher.find()){
-            String $str = matcher.group();
+            String _str = matcher.group();
 
             if(matcher.start() == 0){
-                sb.append(Character.toLowerCase($str.charAt(0)));
+                sb.append(Character.toLowerCase(_str.charAt(0)));
             }else{
-                sb.append(Character.toUpperCase($str.charAt(0)));
+                sb.append(Character.toUpperCase(_str.charAt(0)));
             }
 
-            int index = $str.lastIndexOf("_");
+            int index = _str.lastIndexOf("_");
             if(index > 0){
-                sb.append($str.substring(1, index).toLowerCase());
+                sb.append(_str.substring(1, index).toLowerCase());
             }else{
-                sb.append($str.substring(1).toLowerCase());
+                sb.append(_str.substring(1).toLowerCase());
             }
         }
 
@@ -54,8 +54,8 @@ public class NameUtils{
         Matcher matcher = pattern.matcher(str);
 
         while(matcher.find()){
-            String $str = matcher.group();
-            sb.append($str.toLowerCase());
+            String _str = matcher.group();
+            sb.append(_str.toLowerCase());
             sb.append(matcher.end() == str.length() ? "" : "_");
         }
 
