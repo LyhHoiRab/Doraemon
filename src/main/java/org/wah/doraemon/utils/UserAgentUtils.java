@@ -51,7 +51,7 @@ public class UserAgentUtils{
      */
     public static BrowserType getBrowserType(String info){
         if(StringUtils.isBlank(info)){
-            throw new UtilsException("{0} : 客户端信息不能为空", UserAgentUtils.class);
+            throw new UtilsException("客户端信息不能为空");
         }
 
         return UserAgent.parseUserAgentString(info).getBrowser().getBrowserType();
@@ -62,7 +62,7 @@ public class UserAgentUtils{
      */
     public static boolean isMicrosoft(String info){
         if(StringUtils.isBlank(info)){
-            throw new UtilsException("{0} : 客户端信息不能为空", UserAgentUtils.class);
+            throw new UtilsException("客户端信息不能为空");
         }
 
         Manufacturer manufacturer = UserAgentUtils.getBrowser(info).getManufacturer();
@@ -73,9 +73,9 @@ public class UserAgentUtils{
     /**
      * 判断客户端浏览器是否移动设备类型
      */
-    public static boolean isMobileDevice(String info){
+    public static boolean isMobile(String info){
         if(StringUtils.isBlank(info)){
-            throw new UtilsException("{0} : 客户端信息不能为空", UserAgentUtils.class);
+            throw new UtilsException("客户端信息不能为空");
         }
 
         BrowserType type = UserAgent.parseUserAgentString(info).getBrowser().getBrowserType();
