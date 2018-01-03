@@ -29,7 +29,7 @@ public class UserAgentUtils{
      */
     public static Browser getBrowser(String info){
         if(StringUtils.isBlank(info)){
-            throw new UtilsException("{0} : 客户端信息不能为空", UserAgentUtils.class);
+            throw new UtilsException("客户端信息不能为空");
         }
 
         return UserAgent.parseUserAgentString(info).getBrowser();
@@ -40,7 +40,7 @@ public class UserAgentUtils{
      */
     public static OperatingSystem getOperatingSystem(String info){
         if(StringUtils.isBlank(info)){
-            throw new UtilsException("{0} : 客户端信息不能为空", UserAgentUtils.class);
+            throw new UtilsException("客户端信息不能为空");
         }
 
         return UserAgent.parseUserAgentString(info).getOperatingSystem();
