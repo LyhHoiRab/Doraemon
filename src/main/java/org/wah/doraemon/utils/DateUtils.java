@@ -85,7 +85,7 @@ public class DateUtils{
         Date result = formatter.parse(content, position);
 
         if(result == null || position.getIndex() != content.length()){
-            throw new UtilsException("日期 [{0}] 和模板 [{1}] 不对应", date, pattern);
+            throw new UtilsException("日期[{0}]和模板[{1}]不对应", date, pattern);
         }
 
         return result;
@@ -96,7 +96,7 @@ public class DateUtils{
      */
     public static Date parse(Long timestamp){
         if(timestamp == null){
-            throw new UtilsException("无效的时间戳 [{0}]", timestamp);
+            throw new UtilsException("无效的时间戳[{0}]", timestamp);
         }
 
         return new Date(timestamp);
@@ -204,6 +204,4 @@ public class DateUtils{
 
         return cal_first.get(Calendar.ERA) == cal_second.get(Calendar.ERA);
     }
-
-
 }
