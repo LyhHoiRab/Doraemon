@@ -1,12 +1,12 @@
 package org.wah.doraemon.consts;
 
-import org.wah.doraemon.consts.base.Type;
+import org.wah.doraemon.consts.base.EnumType;
 import org.wah.doraemon.security.exception.UnknownEnumTypeException;
 
 /**
  * 账户状态枚举
  */
-public enum AccountState implements Type{
+public enum AccountState implements EnumType{
 
     NORMAL(0, "正常"),
     FROZEN(1, "冻结"),
@@ -41,6 +41,6 @@ public enum AccountState implements Type{
             }
         }
 
-        throw new UnknownEnumTypeException("未知的使用状态常量ID : {0}", id);
+        throw new UnknownEnumTypeException("未知的使用状态常量ID[{0}]", id);
     }
 }

@@ -3,11 +3,11 @@ package org.wah.doraemon.consts.base;
 /**
  * 常量枚举基础父类
  */
-public interface Type{
+public interface EnumType{
 
     int getId();
 
     String getDescription();
 
-     Enum getById(int id);
+    Enum getById(int id);
 }

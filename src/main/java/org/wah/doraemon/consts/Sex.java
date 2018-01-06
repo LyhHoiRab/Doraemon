@@ -1,12 +1,12 @@
 package org.wah.doraemon.consts;
 
-import org.wah.doraemon.consts.base.Type;
+import org.wah.doraemon.consts.base.EnumType;
 import org.wah.doraemon.security.exception.UnknownEnumTypeException;
 
 /**
  * 用户性别
  */
-public enum Sex implements Type{
+public enum Sex implements EnumType{
 
     UNKNOWN(0, "未知"),
     MALE(1, "男性"),
@@ -41,6 +41,6 @@ public enum Sex implements Type{
             }
         }
 
-        throw new UnknownEnumTypeException("未知的使用状态常量ID : {0}", id);
+        throw new UnknownEnumTypeException("未知的使用状态常量ID[{0}]", id);
     }
 }

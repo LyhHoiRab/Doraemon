@@ -52,7 +52,7 @@ public class DateUtils{
      */
     public static String format(Long timestamp, String pattern){
         if(timestamp == null){
-            throw new UtilsException("无效的时间戳 [{0}]", timestamp);
+            throw new UtilsException("无效的时间戳[{0}]", timestamp);
         }
 
         if(StringUtils.isBlank(pattern)){
@@ -532,7 +532,22 @@ public class DateUtils{
      * 月数差
      */
     public static long differenceByMonths(Date first, Date second){
-        return 0;
+        if(first == null || second == null){
+            throw new UtilsException("比较的日期不能为空");
+        }
+
+        Calendar cal_first = Calendar.getInstance();
+        cal_first.setTime(first);
+
+        Calendar cal_second = Calendar.getInstance();
+        cal_second.setTime(second);
+
+
+        if(first.before(second)){
+            return (13 - cal_first.get(Calendar.MONTH)) + cal_second.get(Calendar.MONTH);
+        }
+
+        return (13 - cal_second.get(Calendar.MONTH)) + cal_first.get(Calendar.MONTH);
     }
 
     /**
