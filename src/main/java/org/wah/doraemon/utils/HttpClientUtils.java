@@ -32,7 +32,7 @@ public class HttpClientUtils{
 
     }
 
-    private static CloseableHttpClient createHttpsClient(String certificate, String password){
+    public static CloseableHttpClient createHttpsClient(String certificate, String password){
         if(StringUtils.isBlank(certificate)){
             throw new UtilsException("证书路径不能为空");
         }
@@ -50,7 +50,7 @@ public class HttpClientUtils{
         }
     }
 
-    private static CloseableHttpClient createHttpsClient(){
+    public static CloseableHttpClient createHttpsClient(){
         try{
             TrustStrategy trust = new TrustStrategy(){
                 @Override
@@ -68,7 +68,7 @@ public class HttpClientUtils{
         }
     }
 
-    private static CloseableHttpClient createHttpClient(){
+    public static CloseableHttpClient createHttpClient(){
         return HttpClients.createDefault();
     }
 
@@ -169,6 +169,8 @@ public class HttpClientUtils{
 
                 if(url.lastIndexOf("?") == -1){
                     url += "?";
+                }else{
+                    url += "&";
                 }
 
                 url += paramsStr;

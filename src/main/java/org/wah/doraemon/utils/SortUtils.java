@@ -20,7 +20,7 @@ public class SortUtils{
 
         StringBuffer sb = new StringBuffer();
         for(int i = 0; i < list.size(); i++){
-            if(i > 0){
+            if(i > 0 && separator != null){
                 sb.append(separator);
             }
 
@@ -40,7 +40,7 @@ public class SortUtils{
 
         StringBuffer sb = new StringBuffer();
         for(int i = 0; i < keys.size(); i++){
-            if(i > 0){
+            if(i > 0 && separator != null){
                 sb.append(separator);
             }
 
