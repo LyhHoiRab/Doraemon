@@ -5,9 +5,7 @@ package org.wah.doraemon.consts.base;
  */
 public interface EnumType{
 
-    int getId();
+    abstract int getId();
 
-    String getDescription();
-
-    Enum getById(int id);
+    abstract String getDescription();
 }

@@ -113,7 +113,7 @@ public class Criterion{
             throw new DataAccessException("运算数组不能为空");
         }
 
-        this.value = value;
+        this.secondValue = value;
     }
 
     public void setProperty(String property){

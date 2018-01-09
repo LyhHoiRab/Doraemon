@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper>
+  <sql id="WHERE_COLUMN">
+    <where>
+      <if test="andCriterions != null and andCriterions.size > 0">
+        <foreach collection="andCriterions" item="criterion">
+          <trim prefix="AND (" suffix=")">
+            <choose>
+              <when test="criterion.noValue">
+                ${criterion.property} ${criterion.operator}
+              </when>
+              <when test="criterion.singleValue">
+                ${criterion.property} ${criterion.operator} #{criterion.value}
+              </when>
+              <when test="criterion.betweenValue">
+                ${criterion.property} $criterion.operator} #{criterion.value} AND #{criterion.secondValue}
+              </when>
+              <when test="criterion.listValue">
+                ${criterion.property} ${criterion.operator}
+                <foreach collection="criterion.value" item="item" open="(" close=")" separator=",">
+                  #{item}
+                </foreach>
+              </when>
+              <when test="andCriterionValue">
+                <foreach collection="criterion.value" item="item" open="(" close=")" separator="AND">
+                  <trim prefix="(" suffix=")">
+                    <choose>
+                      <when test="criterion.noValue">
+                        ${criterion.property} ${criterion.operator}
+                      </when>
+                      <when test="criterion.singleValue">
+                        ${criterion.property} ${criterion.operator} #{criterion.value}
+                      </when>
+                      <when test="criterion.betweenValue">
+                        ${criterion.property} $criterion.operator} #{criterion.value} AND #{criterion.secondValue}
+                      </when>
+                      <when test="criterion.listValue">
+                        ${criterion.property} ${criterion.operator}
+                        <foreach collection="criterion.value" item="item" open="(" close=")" separator=",">
+                          #{item}
+                        </foreach>
+                      </when>
+                    </choose>
+                  </trim>
+                </foreach>
+              </when>
+              <when test="orCriterionValue">
+                <foreach collection="criterion.value" item="item" open="(" close=")" separator="OR">
+                  <trim prefix="(" suffix=")">
+                    <choose>
+                      <when test="criterion.noValue">
+                        ${criterion.property} ${criterion.operator}
+                      </when>
+                      <when test="criterion.singleValue">
+                        ${criterion.property} ${criterion.operator} #{criterion.value}
+                      </when>
+                      <when test="criterion.betweenValue">
+                        ${criterion.property} $criterion.operator} #{criterion.value} AND #{criterion.secondValue}
+                      </when>
+                      <when test="criterion.listValue">
+                        ${criterion.property} ${criterion.operator}
+                        <foreach collection="criterion.value" item="item" open="(" close=")" separator=",">
+                          #{item}
+                        </foreach>
+                      </when>
+                    </choose>
+                  </trim>
+                </foreach>
+              </when>
+            </choose>
+          </trim>
+        </foreach>
+      </if>
+
+      <if test="orCriterions != null and orCriterions.size > 0">
+            <foreach collection="orCriterions" item="criterion">
+          <trim prefix="OR (" suffix=")">
+            <choose>
+              <when test="criterion.noValue">
+                ${criterion.property} ${criterion.operator}
+              </when>
+              <when test="criterion.singleValue">
+                ${criterion.property} ${criterion.operator} #{criterion.value}
+              </when>
+              <when test="criterion.betweenValue">
+                ${criterion.property} $criterion.operator} #{criterion.value} AND #{criterion.secondValue}
+              </when>
+              <when test="criterion.listValue">
+                ${criterion.property} ${criterion.operator}
+                <foreach collection="criterion.value" item="item" open="(" close=")" separator=",">
+                  #{item}
+                </foreach>
+              </when>
+              <when test="andCriterionValue">
+                <foreach collection="criterion.value" item="item" open="(" close=")" separator="AND">
+                  <trim prefix="(" suffix=")">
+                    <choose>
+                      <when test="criterion.noValue">
+                        ${criterion.property} ${criterion.operator}
+                      </when>
+                      <when test="criterion.singleValue">
+                        ${criterion.property} ${criterion.operator} #{criterion.value}
+                      </when>
+                      <when test="criterion.betweenValue">
+                        ${criterion.property} $criterion.operator} #{criterion.value} AND #{criterion.secondValue}
+                      </when>
+                      <when test="criterion.listValue">
+                        ${criterion.property} ${criterion.operator}
+                        <foreach collection="criterion.value" item="item" open="(" close=")" separator=",">
+                         #{item}
+                        </foreach>
+                      </when>
+                    </choose>
+                  </trim>
+                </foreach>
+              </when>
+              <when test="orCriterionValue">
+                <foreach collection="criterion.value" item="item" open="(" close=")" separator="OR">
+                  <trim prefix="(" suffix=")">
+                    <choose>
+                      <when test="criterion.noValue">
+                        ${criterion.property} ${criterion.operator}
+                      </when>
+                      <when test="criterion.singleValue">
+                        ${criterion.property} ${criterion.operator} #{criterion.value}
+                      </when>
+                      <when test="criterion.betweenValue">
+                        ${criterion.property} $criterion.operator} #{criterion.value} AND #{criterion.secondValue}
+                      </when>
+                      <when test="criterion.listValue">
+                        ${criterion.property} ${criterion.operator}
+                        <foreach collection="criterion.value" item="item" open="(" close=")" separator=",">
+                          #{item}
+                        </foreach>
+                      </when>
+                    </choose>
+                  </trim>
+                </foreach>
+              </when>
+            </choose>
+          </trim>
+        </foreach>
+      </if>
+    </where>
+  </sql>
+</mapper>

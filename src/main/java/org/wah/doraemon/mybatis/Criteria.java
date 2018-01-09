@@ -6,9 +6,9 @@ import java.util.List;
 public class Criteria{
 
     //与
-    private List<Criterion> andCriterion;
+    private List<Criterion> andCriterions;
     //或
-    private List<Criterion> orCriterion;
+    private List<Criterion> orCriterions;
     //排序
     private List<Criterion> sorts;
     //分组
@@ -17,18 +17,18 @@ public class Criteria{
     private Criterion limit;
 
     public Criteria(){
-        this.andCriterion = new ArrayList<Criterion>();
-        this.orCriterion = new ArrayList<Criterion>();
+        this.andCriterions = new ArrayList<Criterion>();
+        this.orCriterions = new ArrayList<Criterion>();
         this.sorts = new ArrayList<Criterion>();
         this.groups = new ArrayList<Criterion>();
     }
 
-    public List<Criterion> getAndCriterion(){
-        return andCriterion;
+    public List<Criterion> getAndCriterions(){
+        return andCriterions;
     }
 
-    public List<Criterion> getOrCriterion(){
-        return orCriterion;
+    public List<Criterion> getOrCriterions(){
+        return orCriterions;
     }
 
     public List<Criterion> getSorts(){
@@ -44,12 +44,12 @@ public class Criteria{
     }
 
     public Criteria and(Criterion criterion){
-        andCriterion.add(criterion);
+        andCriterions.add(criterion);
         return this;
     }
 
     public Criteria or(Criterion criterion){
-        orCriterion.add(criterion);
+        orCriterions.add(criterion);
         return this;
     }
 
@@ -69,8 +69,8 @@ public class Criteria{
     }
 
     public void clear(){
-        andCriterion.clear();
-        orCriterion.clear();
+        andCriterions.clear();
+        orCriterions.clear();
         sorts.clear();
         groups.clear();
         limit = null;

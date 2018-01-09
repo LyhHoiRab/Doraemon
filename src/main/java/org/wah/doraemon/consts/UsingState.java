@@ -31,8 +31,7 @@ public enum UsingState implements EnumType{
         return this.description;
     }
 
-    @Override
-    public UsingState getById(int id){
+    public static UsingState getById(int id){
         for(UsingState state : UsingState.values()){
             if(state.getId() == id){
                 return state;

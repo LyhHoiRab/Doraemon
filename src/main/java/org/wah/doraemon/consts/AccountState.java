@@ -33,8 +33,7 @@ public enum AccountState implements EnumType{
         return this.description;
     }
 
-    @Override
-    public AccountState getById(int id){
+    public static AccountState getById(int id){
         for(AccountState state : AccountState.values()){
             if(state.getId() == id){
                 return state;

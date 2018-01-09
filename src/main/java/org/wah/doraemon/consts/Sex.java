@@ -32,9 +32,8 @@ public enum Sex implements EnumType{
     public String getDescription(){
         return this.description;
     }
-
-    @Override
-    public Sex getById(int id){
+    
+    public static Sex getById(int id){
         for(Sex sex : Sex.values()){
             if(sex.getId() == id){
                 return sex;
