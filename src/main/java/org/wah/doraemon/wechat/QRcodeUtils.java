@@ -5,7 +5,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.wah.doraemon.security.exception.UtilsException;
 import org.wah.doraemon.utils.HttpClientUtils;
 import org.wah.doraemon.utils.ObjectUtils;
-import org.wah.doraemon.wechat.response.QRcode;
+import org.wah.doraemon.wechat.response.Qrcode;
 
 import java.nio.charset.Charset;
 import java.text.MessageFormat;
@@ -25,7 +25,7 @@ public class QRcodeUtils{
     /**
      * 临时字符串参数二维码
      */
-    public static QRcode getByStr(String accessToken, String str, Integer expireSeconds){
+    public static Qrcode getByStr(String accessToken, String str, Integer expireSeconds){
         if(StringUtils.isBlank(accessToken)){
             throw new UtilsException("accessToken不能为空");
         }
@@ -54,7 +54,7 @@ public class QRcodeUtils{
         String result = HttpClientUtils.get(client, MessageFormat.format(API, accessToken), params, CHARSET);
 
         if(!StringUtils.isBlank(result)){
-            QRcode qrcode = ObjectUtils.deserialize(result, QRcode.class);
+            Qrcode qrcode = ObjectUtils.deserialize(result, Qrcode.class);
 
             if(qrcode.errCode == null){
                 return qrcode;
@@ -69,7 +69,7 @@ public class QRcodeUtils{
     /**
      * 临时整型参数二维码
      */
-    public static QRcode getByInt(String accessToken, Integer id, Integer expireSeconds){
+    public static Qrcode getByInt(String accessToken, Integer id, Integer expireSeconds){
         if(StringUtils.isBlank(accessToken)){
             throw new UtilsException("accessToken不能为空");
         }
@@ -98,7 +98,7 @@ public class QRcodeUtils{
         String result = HttpClientUtils.get(client, MessageFormat.format(API, accessToken), params, CHARSET);
 
         if(!StringUtils.isBlank(result)){
-            QRcode qrcode = ObjectUtils.deserialize(result, QRcode.class);
+            Qrcode qrcode = ObjectUtils.deserialize(result, Qrcode.class);
 
             if(qrcode.errCode == null){
                 return qrcode;
@@ -113,7 +113,7 @@ public class QRcodeUtils{
     /**
      * 永久字符串参数二维码
      */
-    public static QRcode getLimitByStr(String accessToken, String str){
+    public static Qrcode getLimitByStr(String accessToken, String str){
         if(StringUtils.isBlank(accessToken)){
             throw new UtilsException("accessToken不能为空");
         }
@@ -137,7 +137,7 @@ public class QRcodeUtils{
         String result = HttpClientUtils.get(client, MessageFormat.format(API, accessToken), params, CHARSET);
 
         if(!StringUtils.isBlank(result)){
-            QRcode qrcode = ObjectUtils.deserialize(result, QRcode.class);
+            Qrcode qrcode = ObjectUtils.deserialize(result, Qrcode.class);
 
             if(qrcode.errCode == null){
                 return qrcode;
@@ -152,7 +152,7 @@ public class QRcodeUtils{
     /**
      * 永久整型参数二维码
      */
-    public static QRcode getLimitByInt(String accessToken, Integer id){
+    public static Qrcode getLimitByInt(String accessToken, Integer id){
         if(StringUtils.isBlank(accessToken)){
             throw new UtilsException("accessToken不能为空");
         }
@@ -176,7 +176,7 @@ public class QRcodeUtils{
         String result = HttpClientUtils.get(client, MessageFormat.format(API, accessToken), params, CHARSET);
 
         if(!StringUtils.isBlank(result)){
-            QRcode qrcode = ObjectUtils.deserialize(result, QRcode.class);
+            Qrcode qrcode = ObjectUtils.deserialize(result, Qrcode.class);
 
             if(qrcode.errCode == null){
                 return qrcode;
