@@ -39,7 +39,7 @@ public class AccessTokenUtils{
         if(!StringUtils.isBlank(result)){
             AccessToken accessToken = ObjectUtils.deserialize(result, AccessToken.class);
 
-            if(accessToken.errCode == null){
+            if(StringUtils.isBlank(accessToken.getErrCode())){
                 return accessToken;
             }
 

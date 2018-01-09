@@ -38,6 +38,16 @@ public class Account extends Entity implements Createable, Updateable, Deleteabl
 
     }
 
+    @Override
+    public String getId(){
+        return id;
+    }
+
+    @Override
+    public void setId(String id){
+        this.id = id;
+    }
+
     public String getUsername(){
         return username;
     }

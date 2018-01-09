@@ -1,27 +1,12 @@
 package org.wah.doraemon.wechat.response;
 
-public abstract class Error{
+public interface Error{
 
-    private Integer errCode;
-    private String errMsg;
+    String getErrCode();
 
-    public Error(){
+    void setErrCode(String errCode);
 
-    }
+    String getErrMsg();
 
-    public Integer getErrCode(){
-        return errCode;
-    }
-
-    public void setErrCode(Integer errCode){
-        this.errCode = errCode;
-    }
-
-    public String getErrMsg(){
-        return errMsg;
-    }
-
-    public void setErrMsg(String errMsg){
-        this.errMsg = errMsg;
-    }
+    void setErrMsg(String errMsg);
 }

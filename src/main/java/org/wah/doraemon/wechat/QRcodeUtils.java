@@ -56,7 +56,7 @@ public class QRcodeUtils{
         if(!StringUtils.isBlank(result)){
             QRcode qrcode = ObjectUtils.deserialize(result, QRcode.class);
 
-            if(qrcode.errCode == null){
+            if(StringUtils.isBlank(qrcode.getErrCode())){
                 return qrcode;
             }
 
@@ -100,7 +100,7 @@ public class QRcodeUtils{
         if(!StringUtils.isBlank(result)){
             QRcode qrcode = ObjectUtils.deserialize(result, QRcode.class);
 
-            if(qrcode.errCode == null){
+            if(StringUtils.isBlank(qrcode.getErrCode())){
                 return qrcode;
             }
 
@@ -139,7 +139,7 @@ public class QRcodeUtils{
         if(!StringUtils.isBlank(result)){
             QRcode qrcode = ObjectUtils.deserialize(result, QRcode.class);
 
-            if(qrcode.errCode == null){
+            if(StringUtils.isBlank(qrcode.getErrCode())){
                 return qrcode;
             }
 
@@ -178,7 +178,7 @@ public class QRcodeUtils{
         if(!StringUtils.isBlank(result)){
             QRcode qrcode = ObjectUtils.deserialize(result, QRcode.class);
 
-            if(qrcode.errCode == null){
+            if(StringUtils.isBlank(qrcode.getErrCode())){
                 return qrcode;
             }
 
