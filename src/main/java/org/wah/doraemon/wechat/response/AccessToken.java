@@ -11,7 +11,7 @@ public class AccessToken implements Error{
     public String errMsg;
     @SerializedName("access_token")
     public String accessToken;
-    @SerializedName("expires_id")
+    @SerializedName("expires_in")
     public Integer expiresIn;
 
     public AccessToken(){
