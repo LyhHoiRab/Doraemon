@@ -95,6 +95,20 @@ public class Restrictions{
         return criterion;
     }
 
+    public static Criterion isBlank(String property){
+        Criterion criterion = new Criterion();
+        criterion.isBlank(property);
+
+        return criterion;
+    }
+
+    public static Criterion isNotBlank(String property){
+        Criterion criterion = new Criterion();
+        criterion.isNotBlank(property);
+
+        return criterion;
+    }
+
     public static Criterion or(List<Criterion> value){
         Criterion criterion = new Criterion();
         criterion.or(value);

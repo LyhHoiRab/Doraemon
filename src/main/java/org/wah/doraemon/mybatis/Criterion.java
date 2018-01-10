@@ -269,13 +269,35 @@ public class Criterion{
     }
 
     /**
-     * 不为空
+     * 非空
      */
     public void isNotNull(String property){
         setProperty(property);
 
         this.operator = IS_NOT_NULL;
         this.noValue = true;
+    }
+
+    /**
+     * 空字符
+     */
+    public void isBlank(String property){
+        setProperty(property);
+        setValue("");
+
+        this.operator = EQUAL;
+        this.singleValue = true;
+    }
+
+    /**
+     * 非空字符串
+     */
+    public void isNotBlank(String property){
+        setProperty(property);
+        setValue("");
+
+        this.operator = NOT_EQUAL;
+        this.singleValue = true;
     }
 
     /**
