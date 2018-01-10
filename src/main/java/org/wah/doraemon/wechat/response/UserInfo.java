@@ -12,6 +12,7 @@ public class UserInfo implements Error{
     public Integer subscribe;
     @SerializedName("openid")
     public String openId;
+    public String nickname;
     public Sex sex;
     public String language;
     public String city;
@@ -20,7 +21,7 @@ public class UserInfo implements Error{
     @SerializedName("headimgurl")
     public String headImgUrl;
     @SerializedName("subscribe_time")
-    public String subscribeTime;
+    public Long subscribeTime;
     @SerializedName("unionid")
     public String unionId;
     public String remark;
@@ -63,6 +64,14 @@ public class UserInfo implements Error{
 
     public void setOpenId(String openId){
         this.openId = openId;
+    }
+
+    public String getNickname(){
+        return nickname;
+    }
+
+    public void setNickname(String nickname){
+        this.nickname = nickname;
     }
 
     public Sex getSex(){
@@ -113,11 +122,11 @@ public class UserInfo implements Error{
         this.headImgUrl = headImgUrl;
     }
 
-    public String getSubscribeTime(){
+    public Long getSubscribeTime(){
         return subscribeTime;
     }
 
-    public void setSubscribeTime(String subscribeTime){
+    public void setSubscribeTime(Long subscribeTime){
         this.subscribeTime = subscribeTime;
     }
 
