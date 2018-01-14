@@ -41,9 +41,7 @@ public class FileUtils{
             }
 
             return HexUtils.toHex(digest.digest(), upperCase);
-        }catch(IOException e){
-            throw new UtilsException(e.getMessage(), e);
-        }catch(NoSuchAlgorithmException e){
+        }catch(Exception e){
             throw new UtilsException(e.getMessage(), e);
         }
     }
@@ -68,9 +66,7 @@ public class FileUtils{
             }
 
             return HexUtils.toHex(digest.digest(), upperCase);
-        }catch(IOException e){
-            throw new UtilsException(e.getMessage(), e);
-        }catch(NoSuchAlgorithmException e){
+        }catch(Exception e){
             throw new UtilsException(e.getMessage(), e);
         }
     }
@@ -95,9 +91,7 @@ public class FileUtils{
             }
 
             return HexUtils.toHex(digest.digest(), upperCase);
-        }catch(IOException e){
-            throw new UtilsException(e.getMessage(), e);
-        }catch(NoSuchAlgorithmException e){
+        }catch(Exception e){
             throw new UtilsException(e.getMessage(), e);
         }
     }
