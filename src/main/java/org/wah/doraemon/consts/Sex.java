@@ -40,6 +40,6 @@ public enum Sex implements EnumType{
             }
         }
 
-        throw new UnknownEnumTypeException("未知的使用状态常量ID[{0}]", id);
+        throw new UnknownEnumTypeException("未知的常量ID[{0}:{1}]", Sex.class, id);
     }
 }
