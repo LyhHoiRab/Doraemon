@@ -1,5 +1,7 @@
 package org.wah.doraemon.mybatis;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Restrictions{
@@ -111,14 +113,14 @@ public class Restrictions{
 
     public static Criterion or(Criterion... value){
         Criterion criterion = new Criterion();
-        criterion.or(value);
+        criterion.or(Arrays.asList(value));
 
         return criterion;
     }
 
     public static Criterion and(Criterion... value){
         Criterion criterion = new Criterion();
-        criterion.and(value);
+        criterion.and(Arrays.asList(value));
 
         return criterion;
     }
