@@ -23,7 +23,7 @@
                   #{item}
                 </foreach>
               </when>
-              <when test="andCriterionValue">
+              <when test="criterion.andCriterionValue">
                 <foreach collection="criterion.value" item="item" open="(" close=")" separator="AND">
                   <trim prefix="(" suffix=")">
                     <choose>
@@ -46,7 +46,7 @@
                   </trim>
                 </foreach>
               </when>
-              <when test="orCriterionValue">
+              <when test="criterion.orCriterionValue">
                 <foreach collection="criterion.value" item="item" open="(" close=")" separator="OR">
                   <trim prefix="(" suffix=")">
                     <choose>
@@ -93,7 +93,7 @@
                   #{item}
                 </foreach>
               </when>
-              <when test="andCriterionValue">
+              <when test="criterion.andCriterionValue">
                 <foreach collection="criterion.value" item="item" open="(" close=")" separator="AND">
                   <trim prefix="(" suffix=")">
                     <choose>
@@ -116,7 +116,7 @@
                   </trim>
                 </foreach>
               </when>
-              <when test="orCriterionValue">
+              <when test="criterion.orCriterionValue">
                 <foreach collection="criterion.value" item="item" open="(" close=")" separator="OR">
                   <trim prefix="(" suffix=")">
                     <choose>
