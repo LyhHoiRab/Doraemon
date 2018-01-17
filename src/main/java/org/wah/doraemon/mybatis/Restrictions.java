@@ -109,14 +109,14 @@ public class Restrictions{
         return criterion;
     }
 
-    public static Criterion or(List<Criterion> value){
+    public static Criterion or(Criterion... value){
         Criterion criterion = new Criterion();
         criterion.or(value);
 
         return criterion;
     }
 
-    public static Criterion and(List<Criterion> value){
+    public static Criterion and(Criterion... value){
         Criterion criterion = new Criterion();
         criterion.and(value);
 

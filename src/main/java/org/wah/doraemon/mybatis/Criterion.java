@@ -303,7 +303,7 @@ public class Criterion{
     /**
      * 或
      */
-    public void or(List<Criterion> value){
+    public void or(Criterion... value){
         setValue(value);
 
         this.operator = OR;
@@ -313,7 +313,7 @@ public class Criterion{
     /**
      * 与
      */
-    public void and(List<Criterion> value){
+    public void and(Criterion... value){
         setValue(value);
 
         this.operator = AND;

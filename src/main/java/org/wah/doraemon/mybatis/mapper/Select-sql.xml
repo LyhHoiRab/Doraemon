@@ -4,8 +4,8 @@
 <mapper>
   <sql id="WHERE_COLUMN">
     <where>
-      <if test="andCriterions != null and andCriterions.size > 0">
-        <foreach collection="andCriterions" item="criterion">
+      <if test="params.andCriterions != null and params.andCriterions.size > 0">
+        <foreach collection="params.andCriterions" item="criterion">
           <trim prefix="AND (" suffix=")">
             <choose>
               <when test="criterion.noValue">
@@ -74,8 +74,8 @@
         </foreach>
       </if>
 
-      <if test="orCriterions != null and orCriterions.size > 0">
-            <foreach collection="orCriterions" item="criterion">
+      <if test="params.orCriterions != null and params.orCriterions.size > 0">
+            <foreach collection="params.orCriterions" item="criterion">
           <trim prefix="OR (" suffix=")">
             <choose>
               <when test="criterion.noValue">
