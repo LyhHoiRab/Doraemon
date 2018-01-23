@@ -22,7 +22,7 @@ public class User extends Entity implements Createable, Updateable{
     //昵称
     private String nickname;
     //年龄
-    private int age;
+    private Integer age;
     //出生
     private Date birthday;
     //性别
@@ -74,11 +74,11 @@ public class User extends Entity implements Createable, Updateable{
         this.nickname = nickname;
     }
 
-    public int getAge(){
+    public Integer getAge(){
         return age;
     }
 
-    public void setAge(int age){
+    public void setAge(Integer age){
         this.age = age;
     }
 
