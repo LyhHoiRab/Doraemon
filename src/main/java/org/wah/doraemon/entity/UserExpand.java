@@ -30,16 +30,6 @@ public class UserExpand extends Entity implements Createable, Updateable{
 
     }
 
-    @Override
-    public String getId(){
-        return id;
-    }
-
-    @Override
-    public void setId(String id){
-        this.id = id;
-    }
-
     public String getUserId(){
         return userId;
     }

@@ -40,16 +40,6 @@ public class User extends Entity implements Createable, Updateable{
 
     }
 
-    @Override
-    public String getId(){
-        return id;
-    }
-
-    @Override
-    public void setId(String id){
-        this.id = id;
-    }
-
     public String getAccountId(){
         return accountId;
     }
