@@ -1,10 +1,12 @@
 package org.wah.doraemon.utils;
 
 import com.google.gson.Gson;
+import com.google.gson.internal.$Gson$Types;
 import com.google.gson.reflect.TypeToken;
 import org.apache.commons.lang3.StringUtils;
 import org.wah.doraemon.security.exception.UtilsException;
 
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 public class ObjectUtils{
@@ -56,12 +58,10 @@ public class ObjectUtils{
     /**
      * 反序列化
      */
-    public static <T> T deserialize(String json, T objectType,  boolean nullable, boolean escapeHtmlChars, boolean longToDate, String datePattern){
-        if(objectType == null){
+    public static <T> T deserialize(String json, Type type,  boolean nullable, boolean escapeHtmlChars, boolean longToDate, String datePattern){
+        if(type == null){
             throw new UtilsException("反序列化对象类型属性不能为空");
         }
-
-        Type type = new TypeToken<T>(){}.getType();
 
         Gson gson = GsonUtils.getGson(nullable, escapeHtmlChars, longToDate, datePattern);
         return gson.fromJson(json, type);
@@ -70,12 +70,10 @@ public class ObjectUtils{
     /**
      * 反序列化
      */
-    public static <T> T deserialize(String json, T objectType){
-        if(objectType == null){
+    public static <T> T deserialize(String json, Type type){
+        if(type == null){
             throw new UtilsException("反序列化对象类型属性不能为空");
         }
-
-        Type type = new TypeToken<T>(){}.getType();
 
         Gson gson = GsonUtils.getGson();
         return gson.fromJson(json, type);
