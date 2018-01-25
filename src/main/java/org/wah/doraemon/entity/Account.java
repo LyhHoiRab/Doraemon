@@ -13,8 +13,6 @@ import java.util.Date;
  */
 public class Account extends Entity implements Createable, Updateable, Deleteable{
 
-    //ID
-    private String id;
     //登录名称
     private String username;
     //密码

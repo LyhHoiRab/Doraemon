@@ -13,8 +13,6 @@ import java.util.List;
  */
 public class User extends Entity implements Createable, Updateable{
 
-    //ID
-    private String id;
     //账户ID
     private String accountId;
     //头像

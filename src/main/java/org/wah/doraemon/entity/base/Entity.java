@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 public abstract class Entity implements Serializable{
 
-    private transient String id;
+    private String id;
 
     public Entity(){
 

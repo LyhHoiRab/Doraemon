@@ -11,8 +11,6 @@ import java.util.Date;
  */
 public class UserExpand extends Entity implements Createable, Updateable{
 
-    //ID
-    private String id;
     //用户ID
     private String userId;
     //属性名
