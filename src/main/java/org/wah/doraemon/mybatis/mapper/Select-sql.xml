@@ -109,7 +109,7 @@
                       <when test="item.listValue">
                         ${item.property} ${item.operator}
                         <foreach collection="item.value" item="itemValue" open="(" close=")" separator=",">
-                         #{itemValue}
+                          #{itemValue}
                         </foreach>
                       </when>
                     </choose>
