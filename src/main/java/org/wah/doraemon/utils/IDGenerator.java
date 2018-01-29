@@ -13,6 +13,18 @@ public class IDGenerator{
     }
 
     /**
+     * JDK UUID 16位
+     */
+    public static String uuid16(){
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+
+        BigInteger first = new BigInteger(uuid.substring(0, uuid.length() / 2), 16);
+        BigInteger last = new BigInteger(uuid.substring(uuid.length() / 2, uuid.length()), 16);
+
+        return first.add(last).toString(16);
+    }
+
+    /**
      * JDK UUID 32位
      */
     public static String uuid32(){
