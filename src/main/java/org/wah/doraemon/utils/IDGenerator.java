@@ -1,5 +1,6 @@
 package org.wah.doraemon.utils;
 
+import java.math.BigInteger;
 import java.util.UUID;
 
 /**
@@ -23,5 +24,12 @@ public class IDGenerator{
      */
     public static String uuid36(){
         return UUID.randomUUID().toString();
+    }
+
+    /**
+     * 32位UUID转36进制
+     */
+    public static String uuidTo36Ary(){
+        return new BigInteger(UUID.randomUUID().toString().replaceAll("-", ""), 16).toString(36);
     }
 }
