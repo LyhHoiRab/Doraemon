@@ -32,4 +32,11 @@ public class IDGenerator{
     public static String uuidTo36Ary(){
         return new BigInteger(UUID.randomUUID().toString().replaceAll("-", ""), 16).toString(36);
     }
+
+    /**
+     * 32位UUID转36进制
+     */
+    public static String uuidTo36Ary(String uuid){
+        return new BigInteger(uuid.replaceAll("-", ""), 16).toString(36);
+    }
 }
