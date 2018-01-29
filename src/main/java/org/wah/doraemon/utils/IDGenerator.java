@@ -17,7 +17,6 @@ public class IDGenerator{
      */
     public static String uuid16(){
         String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-
         BigInteger first = new BigInteger(uuid.substring(0, uuid.length() / 2), 16);
         BigInteger last = new BigInteger(uuid.substring(uuid.length() / 2, uuid.length()), 16);
 
