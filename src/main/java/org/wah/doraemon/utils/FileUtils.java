@@ -3,11 +3,10 @@ package org.wah.doraemon.utils;
 import org.apache.commons.lang3.StringUtils;
 import org.wah.doraemon.security.exception.UtilsException;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class FileUtils{
 
@@ -97,6 +96,81 @@ public class FileUtils{
     }
 
     /**
+     * 查询文件字节流MD5值
+     */
+    public static String getMD5(byte[] bytes, boolean upperCase){
+        if(bytes == null || bytes.length == 0){
+            throw new UtilsException("查询的文件不能为空");
+        }
+
+        try(ByteArrayInputStream bis = new ByteArrayInputStream(bytes)){
+            MessageDigest digest = MessageDigest.getInstance(ALGORITHM_MD5);
+
+            byte[] buffer = new byte[STREAM_BUFFER_LENGTH];
+            int read = bis.read(buffer, 0, STREAM_BUFFER_LENGTH);
+
+            while(read > -1){
+                digest.update(buffer, 0, read);
+                read = bis.read(buffer, 0 , STREAM_BUFFER_LENGTH);
+            }
+
+            return HexUtils.toHex(digest.digest(), upperCase);
+        }catch(Exception e){
+            throw new UtilsException(e.getMessage(), e);
+        }
+    }
+
+    /**
+     * 查询文件SHA1值
+     */
+    public static String getSHA1(byte[] bytes, boolean upperCase){
+        if(bytes == null || bytes.length == 0){
+            throw new UtilsException("查询的文件不能为空");
+        }
+
+        try(ByteArrayInputStream bis = new ByteArrayInputStream(bytes)){
+            MessageDigest digest = MessageDigest.getInstance(ALGORITHM_SHA1);
+
+            byte[] buffer = new byte[STREAM_BUFFER_LENGTH];
+            int read = bis.read(buffer, 0, STREAM_BUFFER_LENGTH);
+
+            while(read > -1){
+                digest.update(buffer, 0, read);
+                read = bis.read(buffer, 0 , STREAM_BUFFER_LENGTH);
+            }
+
+            return HexUtils.toHex(digest.digest(), upperCase);
+        }catch(Exception e){
+            throw new UtilsException(e.getMessage(), e);
+        }
+    }
+
+    /**
+     * 查询文件SHA-256值
+     */
+    public static String getSHA256(byte[] bytes, boolean upperCase){
+        if(bytes == null || bytes.length == 0){
+            throw new UtilsException("查询的文件不能为空");
+        }
+
+        try(ByteArrayInputStream bis = new ByteArrayInputStream(bytes)){
+            MessageDigest digest = MessageDigest.getInstance(ALGORITHM_SHA256);
+
+            byte[] buffer = new byte[STREAM_BUFFER_LENGTH];
+            int read = bis.read(buffer, 0, STREAM_BUFFER_LENGTH);
+
+            while(read > -1){
+                digest.update(buffer, 0, read);
+                read = bis.read(buffer, 0 , STREAM_BUFFER_LENGTH);
+            }
+
+            return HexUtils.toHex(digest.digest(), upperCase);
+        }catch(Exception e){
+            throw new UtilsException(e.getMessage(), e);
+        }
+    }
+
+    /**
      * 判断文件MD5值是否相同
      */
     public static boolean isSameMD5(File first, File second){
@@ -120,6 +194,36 @@ public class FileUtils{
      * 判断文件SHA-256值是否相同
      */
     public static boolean isSameSHA256(File first, File second){
+        String first_SHA256 = getSHA256(first, true);
+        String second_SHA256 = getSHA256(second, true);
+
+        return first_SHA256.equals(second_SHA256);
+    }
+
+    /**
+     * 判断文件MD5值是否相同
+     */
+    public static boolean isSameMD5(byte[] first, byte[] second){
+        String first_MD5 = getMD5(first, true);
+        String second_MD5 = getMD5(second, true);
+
+        return first_MD5.equals(second_MD5);
+    }
+
+    /**
+     * 判断文件SHA1值是否相同
+     */
+    public static boolean isSameSHA1(byte[] first, byte[] second){
+        String first_SHA1 = getSHA1(first, true);
+        String second_SHA1 = getSHA1(second, true);
+
+        return first_SHA1.equals(second_SHA1);
+    }
+
+    /**
+     * 判断文件SHA-256值是否相同
+     */
+    public static boolean isSameSHA256(byte[] first, byte[] second){
         String first_SHA256 = getSHA256(first, true);
         String second_SHA256 = getSHA256(second, true);
 
