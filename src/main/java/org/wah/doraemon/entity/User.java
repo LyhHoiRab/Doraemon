@@ -19,6 +19,8 @@ public class User extends Entity implements Createable, Updateable{
     private String headImgUrl;
     //昵称
     private String nickname;
+    //用户姓名
+    private String name;
     //年龄
     private Integer age;
     //出生
@@ -60,6 +62,14 @@ public class User extends Entity implements Createable, Updateable{
 
     public void setNickname(String nickname){
         this.nickname = nickname;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     public Integer getAge(){
