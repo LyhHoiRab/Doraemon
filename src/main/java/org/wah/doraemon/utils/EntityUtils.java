@@ -27,7 +27,7 @@ public class EntityUtils{
         for(Entity entity : list){
             String id = entity.getId();
 
-            if(StringUtils.isBlank(id)){
+            if(!StringUtils.isBlank(id)){
                 ids.add(id);
             }
         }
