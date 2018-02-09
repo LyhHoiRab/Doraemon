@@ -22,7 +22,7 @@ public class EntityUtils{
         }
 
         //结果集
-        List<String> ids = new ArrayList<String>(list.size());
+        List<String> ids = new ArrayList<String>();
 
         for(Entity entity : list){
             String id = entity.getId();
