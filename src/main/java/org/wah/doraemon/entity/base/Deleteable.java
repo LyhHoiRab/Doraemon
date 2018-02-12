@@ -7,9 +7,9 @@ import java.util.Date;
  */
 public interface Deleteable{
 
-    boolean getIsDelete();
+    Boolean getIsDelete();
 
-    void setIsDelete(boolean isDelete);
+    void setIsDelete(Boolean isDelete);
 
     Date getDeleteTime();
 

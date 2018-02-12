@@ -1,5 +1,8 @@
 package org.wah.doraemon.entity.base;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
@@ -7,21 +10,12 @@ import java.io.Serializable;
 /**
  * 实体基础父类
  */
+@NoArgsConstructor
 public abstract class Entity implements Serializable{
 
+    @Getter
+    @Setter
     private String id;
-
-    public Entity(){
-
-    }
-
-    public String getId(){
-        return id;
-    }
-
-    public void setId(String id){
-        this.id = id;
-    }
 
     @Override
     public boolean equals(Object o){

@@ -1,5 +1,7 @@
 package org.wah.doraemon.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.wah.doraemon.entity.base.Createable;
 import org.wah.doraemon.entity.base.Entity;
 import org.wah.doraemon.entity.base.Updateable;
@@ -9,6 +11,8 @@ import java.util.Date;
 /**
  * 用户信息扩展
  */
+@Data
+@NoArgsConstructor
 public class UserExpand extends Entity implements Createable, Updateable{
 
     //用户ID
@@ -23,60 +27,4 @@ public class UserExpand extends Entity implements Createable, Updateable{
     private Date createTime;
     //更新时间
     private Date updateTime;
-
-    public UserExpand(){
-
-    }
-
-    public String getUserId(){
-        return userId;
-    }
-
-    public void setUserId(String userId){
-        this.userId = userId;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public String getValue(){
-        return value;
-    }
-
-    public void setValue(String value){
-        this.value = value;
-    }
-
-    public String getDescription(){
-        return description;
-    }
-
-    public void setDescription(String description){
-        this.description = description;
-    }
-
-    @Override
-    public Date getCreateTime(){
-        return createTime;
-    }
-
-    @Override
-    public void setCreateTime(Date createTime){
-        this.createTime = createTime;
-    }
-
-    @Override
-    public Date getUpdateTime(){
-        return updateTime;
-    }
-
-    @Override
-    public void setUpdateTime(Date updateTime){
-        this.updateTime = updateTime;
-    }
 }

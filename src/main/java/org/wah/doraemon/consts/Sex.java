@@ -1,11 +1,16 @@
 package org.wah.doraemon.consts;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
 import org.wah.doraemon.consts.base.EnumType;
 import org.wah.doraemon.security.exception.UnknownEnumTypeException;
 
 /**
  * 用户性别
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum Sex implements EnumType{
 
     UNKNOWN(0, "未知"),
@@ -14,24 +19,11 @@ public enum Sex implements EnumType{
     VAGUE(3, "模糊");
 
     //ID
+    @Getter
     private int id;
     //描述
+    @Getter
     private String description;
-
-    private Sex(int id, String description){
-        this.id = id;
-        this.description = description;
-    }
-
-    @Override
-    public int getId(){
-        return this.id;
-    }
-
-    @Override
-    public String getDescription(){
-        return this.description;
-    }
     
     public static Sex getById(int id){
         for(Sex sex : Sex.values()){

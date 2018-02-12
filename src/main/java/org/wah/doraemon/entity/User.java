@@ -1,5 +1,7 @@
 package org.wah.doraemon.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.wah.doraemon.consts.Sex;
 import org.wah.doraemon.entity.base.Createable;
 import org.wah.doraemon.entity.base.Entity;
@@ -11,6 +13,8 @@ import java.util.List;
 /**
  * 用户信息
  */
+@Data
+@NoArgsConstructor
 public class User extends Entity implements Createable, Updateable{
 
     //账户ID
@@ -35,100 +39,4 @@ public class User extends Entity implements Createable, Updateable{
     private Date createTime;
     //更新时间
     private Date updateTime;
-
-    public User(){
-
-    }
-
-    public String getAccountId(){
-        return accountId;
-    }
-
-    public void setAccountId(String accountId){
-        this.accountId = accountId;
-    }
-
-    public String getHeadImgUrl(){
-        return headImgUrl;
-    }
-
-    public void setHeadImgUrl(String headImgUrl){
-        this.headImgUrl = headImgUrl;
-    }
-
-    public String getNickname(){
-        return nickname;
-    }
-
-    public void setNickname(String nickname){
-        this.nickname = nickname;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public Integer getAge(){
-        return age;
-    }
-
-    public void setAge(Integer age){
-        this.age = age;
-    }
-
-    public Date getBirthday(){
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday){
-        this.birthday = birthday;
-    }
-
-    public Sex getSex(){
-        return sex;
-    }
-
-    public void setSex(Sex sex){
-        this.sex = sex;
-    }
-
-    public String getAutograph(){
-        return autograph;
-    }
-
-    public void setAutograph(String autograph){
-        this.autograph = autograph;
-    }
-
-    public List<UserExpand> getExpands(){
-        return expands;
-    }
-
-    public void setExpands(List<UserExpand> expands){
-        this.expands = expands;
-    }
-
-    @Override
-    public Date getCreateTime(){
-        return createTime;
-    }
-
-    @Override
-    public void setCreateTime(Date createTime){
-        this.createTime = createTime;
-    }
-
-    @Override
-    public Date getUpdateTime(){
-        return updateTime;
-    }
-
-    @Override
-    public void setUpdateTime(Date updateTime){
-        this.updateTime = updateTime;
-    }
 }

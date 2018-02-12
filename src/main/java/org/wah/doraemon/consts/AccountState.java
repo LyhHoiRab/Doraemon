@@ -1,11 +1,15 @@
 package org.wah.doraemon.consts;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.wah.doraemon.consts.base.EnumType;
 import org.wah.doraemon.security.exception.UnknownEnumTypeException;
 
 /**
  * 账户状态枚举
  */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum AccountState implements EnumType{
 
     NORMAL(0, "正常"),
@@ -14,24 +18,11 @@ public enum AccountState implements EnumType{
     INACTIVITY(3, "未激活");
 
     //ID
+    @Getter
     private int id;
     //描述
+    @Getter
     private String description;
-
-    private AccountState(int id, String description){
-        this.id = id;
-        this.description = description;
-    }
-
-    @Override
-    public int getId(){
-        return this.id;
-    }
-
-    @Override
-    public String getDescription(){
-        return this.description;
-    }
 
     public static AccountState getById(int id){
         for(AccountState state : AccountState.values()){
