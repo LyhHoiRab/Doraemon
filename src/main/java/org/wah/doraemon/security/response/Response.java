@@ -1,10 +1,12 @@
 package org.wah.doraemon.security.response;
 
+import lombok.Data;
 import org.apache.http.HttpStatus;
 
 /**
  * 系统响应
  */
+@Data
 public class Response<T>{
 
     //响应状态码
@@ -24,38 +26,6 @@ public class Response<T>{
         this.code = HttpStatus.SC_OK;
         this.success = true;
         this.msg = msg;
-        this.result = result;
-    }
-
-    public Integer getCode(){
-        return code;
-    }
-
-    public void setCode(Integer code){
-        this.code = code;
-    }
-
-    public String getMsg(){
-        return msg;
-    }
-
-    public void setMsg(String msg){
-        this.msg = msg;
-    }
-
-    public Boolean getSuccess(){
-        return success;
-    }
-
-    public void setSuccess(Boolean success){
-        this.success = success;
-    }
-
-    public T getResult(){
-        return result;
-    }
-
-    public void setResult(T result){
         this.result = result;
     }
 }

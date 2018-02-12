@@ -1,8 +1,11 @@
 package org.wah.doraemon.security.response;
 
+import lombok.Data;
+
 /**
  * 分页请求
  */
+@Data
 public class PageRequest{
 
     //默认页码
@@ -20,29 +23,5 @@ public class PageRequest{
         this.pageNumber = (pageNumber == null || pageNumber < 1) ? DEFAULT_PAGE_NUMBER : pageNumber;
         this.pageSize = (pageSize == null || pageSize < 0) ? DEFAULT_PAGE_SIZE : pageSize;
         this.offset = (this.pageNumber - 1) * this.pageSize;
-    }
-
-    public Long getPageNumber(){
-        return pageNumber;
-    }
-
-    public void setPageNumber(Long pageNumber){
-        this.pageNumber = pageNumber;
-    }
-
-    public Long getPageSize(){
-        return pageSize;
-    }
-
-    public void setPageSize(Long pageSize){
-        this.pageSize = pageSize;
-    }
-
-    public Long getOffset(){
-        return offset;
-    }
-
-    public void setOffset(Long offset){
-        this.offset = offset;
     }
 }
