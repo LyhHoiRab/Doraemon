@@ -1,7 +1,6 @@
 package org.wah.doraemon.mybatis;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Criteria{
@@ -18,10 +17,10 @@ public class Criteria{
     private Criterion limit;
 
     public Criteria(){
-        this.andCriterions = Collections.EMPTY_LIST;
-        this.orCriterions = Collections.EMPTY_LIST;
-        this.sorts = Collections.EMPTY_LIST;
-        this.groups = Collections.EMPTY_LIST;
+        this.andCriterions = new ArrayList<Criterion>();
+        this.orCriterions = new ArrayList<Criterion>();
+        this.sorts = new ArrayList<Criterion>();
+        this.groups = new ArrayList<Criterion>();
     }
 
     public List<Criterion> getAndCriterions(){
