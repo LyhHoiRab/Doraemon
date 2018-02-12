@@ -7,10 +7,11 @@
     <groupId>org.wah</groupId>
     <artifactId>doraemon</artifactId>
     <version>1.0.0</version>
-    <name>doraemon</name>
+    <name>${project.name}</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.name>doraemon</project.name>
         <project.source.jdk>1.7</project.source.jdk>
         <project.target.jdk>1.7</project.target.jdk>
 
@@ -147,7 +148,7 @@
                     <archive>
                         <addMavenDescriptor>true</addMavenDescriptor>
                     </archive>
-                    <finalName>doraemon</finalName>
+                    <finalName>${project.name}</finalName>
                 </configuration>
             </plugin>
         </plugins>
