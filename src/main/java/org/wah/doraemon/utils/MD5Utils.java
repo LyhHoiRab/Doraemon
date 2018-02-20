@@ -4,7 +4,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.wah.doraemon.security.exception.UtilsException;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * MD5摘要算法
@@ -27,7 +26,7 @@ public class MD5Utils{
             digest.update(str.getBytes());
 
             return HexUtils.toHex(digest.digest(), upperCase);
-        }catch(NoSuchAlgorithmException e){
+        }catch(Exception e){
             throw new UtilsException(e.getMessage(), e);
         }
     }

@@ -186,4 +186,24 @@ public class HttpClientUtils{
             close(client);
         }
     }
+
+    public static String stitch(String url, Map<String, Object> params){
+        if(StringUtils.isBlank(url)){
+            throw new UtilsException("请求路径不能为空");
+        }
+
+        if(params != null && !params.isEmpty()){
+            String paramsStr = SortUtils.toString(params, "&");
+
+            if(url.lastIndexOf("?") == -1){
+                url += "?";
+            }else{
+                url += "&";
+            }
+
+            url += paramsStr;
+        }
+
+        return url;
+    }
 }
