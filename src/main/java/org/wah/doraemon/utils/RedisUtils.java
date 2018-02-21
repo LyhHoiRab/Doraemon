@@ -85,7 +85,7 @@ public class RedisUtils{
         }
     }
 
-    //----------------- 基本操作 -----------------//
+    //----------------- 基本(Object)操作 -----------------//
     public static <T> T get(ShardedJedis jedis, String key, Class<T> clazz){
         try{
             checkJedis(jedis);
@@ -218,7 +218,7 @@ public class RedisUtils{
         }
     }
 
-    //----------------- 哈希表操作 -----------------//
+    //----------------- 哈希表(Map)操作 -----------------//
     public static <T> T hget(ShardedJedis jedis, String key, String field, Class<T> clazz){
         try{
             checkJedis(jedis);
@@ -522,7 +522,7 @@ public class RedisUtils{
         }
     }
 
-    //----------------- 队列操作 -----------------//
+    //----------------- 队列(List)操作 -----------------//
     public static <T> T lindex(ShardedJedis jedis, String key, long index, Class<T> clazz){
         try{
             checkJedis(jedis);
