@@ -763,7 +763,7 @@ public class RedisUtils{
         }
     }
 
-    public static void lpush(ShardedJedis jedis, String key, ObjectUtils value){
+    public static void lpush(ShardedJedis jedis, String key, Object value){
         try{
             checkJedis(jedis);
             checkKey(key);
