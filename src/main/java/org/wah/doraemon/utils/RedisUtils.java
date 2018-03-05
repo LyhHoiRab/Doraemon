@@ -428,7 +428,7 @@ public class RedisUtils{
         }
     }
 
-    public static void hmset(ShardedJedis jedis, String key, Map<String, Object> values){
+    public static void hmset(ShardedJedis jedis, String key, Map<String, ?> values){
         try{
             checkJedis(jedis);
             checkKey(key);
@@ -436,11 +436,9 @@ public class RedisUtils{
 
             Map<String, String> jsons = new HashMap<String, String>();
 
-            Iterator<Map.Entry<String, Object>> iterators = values.entrySet().iterator();
-            while(iterators.hasNext()){
-                Map.Entry<String, Object> entry = iterators.next();
-                Object json = entry.getValue();
-                jsons.put(entry.getKey(), checkJson(json) ? ObjectUtils.serialize(json) : null);
+            for(String entryKey : values.keySet()){
+                Object object = values.get(entryKey);
+                jsons.put(entryKey, checkJson(object) ? ObjectUtils.serialize(object) : null);
             }
 
             jedis.hmset(key, jsons);
@@ -777,7 +775,7 @@ public class RedisUtils{
         }
     }
 
-    public static void lpush(ShardedJedis jedis, String key, List<Object> values){
+    public static void lpush(ShardedJedis jedis, String key, List<?> values){
         try{
             checkJedis(jedis);
             checkKey(key);
@@ -785,7 +783,7 @@ public class RedisUtils{
 
             List<String> jsons = new ArrayList<String>();
 
-            Iterator<Object> iterators = values.iterator();
+            Iterator<?> iterators = values.iterator();
             while(iterators.hasNext()){
                 Object object = iterators.next();
                 String json = object != null ? ObjectUtils.serialize(object) : null;
@@ -814,7 +812,7 @@ public class RedisUtils{
         }
     }
 
-    public static void rpush(ShardedJedis jedis, String key, List<Object> values){
+    public static void rpush(ShardedJedis jedis, String key, List<?> values){
         try{
             checkJedis(jedis);
             checkKey(key);
@@ -822,7 +820,7 @@ public class RedisUtils{
 
             List<String> jsons = new ArrayList<String>();
 
-            Iterator<Object> iterators = values.iterator();
+            Iterator<?> iterators = values.iterator();
             while(iterators.hasNext()){
                 Object object = iterators.next();
                 String json = object != null ? ObjectUtils.serialize(object) : null;
@@ -1253,7 +1251,7 @@ public class RedisUtils{
         }
     }
 
-    public static void sadd(ShardedJedis jedis, String key, List<Object> value){
+    public static void sadd(ShardedJedis jedis, String key, List<?> value){
         try{
             checkJedis(jedis);
             checkKey(key);
@@ -1261,7 +1259,7 @@ public class RedisUtils{
 
             List<String> jsons = new ArrayList<String>();
 
-            Iterator<Object> iterators = value.iterator();
+            Iterator<?> iterators = value.iterator();
             while(iterators.hasNext()){
                 jsons.add(ObjectUtils.serialize(iterators.next()));
             }
@@ -1302,7 +1300,7 @@ public class RedisUtils{
         }
     }
 
-    public static  void srem(ShardedJedis jedis, String key, List<Object> value){
+    public static  void srem(ShardedJedis jedis, String key, List<?> value){
         try{
             checkJedis(jedis);
             checkKey(key);
@@ -1310,7 +1308,7 @@ public class RedisUtils{
 
             List<String> jsons = new ArrayList<String>();
 
-            Iterator<Object> iterators = value.iterator();
+            Iterator<?> iterators = value.iterator();
             while(iterators.hasNext()){
                 jsons.add(ObjectUtils.serialize(iterators.next()));
             }
