@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.wah.doraemon.security.exception.UtilsException;
 import redis.clients.jedis.BinaryClient;
 import redis.clients.jedis.ShardedJedis;
+import redis.clients.jedis.ShardedJedisPool;
 
 import java.lang.reflect.Type;
 import java.util.*;
@@ -486,6 +487,20 @@ public class RedisUtils{
             checkField(fields);
 
             jedis.hdel(key, fields.toArray(new String[fields.size()]));
+        }catch(Exception e){
+            throw new UtilsException(e.getMessage(), e);
+        }finally{
+            close(jedis);
+        }
+    }
+
+    public static void hdel(ShardedJedis jedis, String key, String field){
+        try{
+            checkJedis(jedis);
+            checkKey(key);
+            checkField(field);
+
+            jedis.hdel(key, field);
         }catch(Exception e){
             throw new UtilsException(e.getMessage(), e);
         }finally{
